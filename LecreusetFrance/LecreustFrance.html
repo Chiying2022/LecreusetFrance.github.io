@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <style>
+    /* ------------------大屏幕------------------ */
+    body {
+      margin: 0px;
+    }
+
+    .homepage-bg-wrap {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+
+    .homepage-bg-wrap img {
+      width: 100%;
+    }
+
+    .homepage-text {
+      width: 300px;
+      height: auto;
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 800px) {
+      .homepage-text {
+        /* margin-top: 0%;
+        margin-left: 20%; */
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+
+      .test {
+        margin: auto;
+      }
+
+      .homepage-text p {
+        display: none;
+      }
+    }
+
+    .text-line1 {
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ------------------橫條商品------------------ */
+    .container-category {
+      text-align: center;
+    }
+
+    .card-category-wrap {
+      overflow: hidden;
+      justify-content: space-between;
+
+    }
+
+    .card-body {
+      text-align: center;
+      font-family: swiss
+    }
+
+    /* -----------------卡片區---------------------- */
+    .card {
+      width: 100%;
+      background-color: #f4f2ef;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: lyon;
+      font-size: 2.5rem;
+      line-height: 3rem;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.375rem;
+      font-family: lyon;
+    }
+
+    .product-card {
+      width: 300px;
+      background: #fff;
+      border-radius: 10px;
+      font-family: swiss;
+      /* margin-left: 20px; */
+    }
+
+    .product-card:hover {
+      box-shadow: 5px 5px 10px #ccc;
+      transition: .3s;
+    }
+
+
+    a {
+      display: block;
+      color: black;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+
+    .card-img-wrap {
+      width: 100%;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .color-wrap {
+      width: 100%;
+      justify-content: space-around;
+    }
+
+    .color {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      margin-left: 10px;
+
+    }
+
+    @media screen and (max-width: 800px) {
+      .row-card {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+      }
+
+      .product-card {
+        margin: 10px;
+      }
+    }
+
+    /*----------------- 輪播墻 ---------------------*/
+    .row-slide {
+      width: 100%;
+
+    }
+
+    .slide-img-wrap {
+      width: 100%;
+      padding: 10px 30px;
+      position: relative;
+
+    }
+
+    .slide-img-wrap img {
+      width: 100%;
+      border-radius: 10px;
+
+    }
+
+    .slide-text {
+      position: absolute;
+      top: 10%;
+      left: 30%;
+      color: #fff;
+      text-align: center;
+      align-content: center;
+    }
+
+    /* ----------------永遠promo------------------- */
+    .container-promo {
+      width: 100%;
+
+    }
+
+    .row-promo {
+      width: 100%;
+      padding: 30px;
+      background-color: #f4f2ef;
+
+    }
+
+    .promo-img-wrap {
+      width: 50%;
+
+    }
+
+    .promo-img-wrap img {
+      width: 100%;
+      border-radius: 5%;
+    }
+
+    .promo-text {
+      width: 50%;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .promo-text p {
+      font-family: swiss;
+    }
+
+    .promo-row-text-box {
+      width: 100%;
+      align-items: center;
+
+    }
+
+    .promo-text-box {
+      width: 100%;
+      align-content: center;
+      display: flex;
+
+    }
+
+    .promo-text-box p {
+      font-family: swiss;
+    }
+
+    .promo-text-box-img {
+      width: 50%;
+      padding: 10px;
+
+    }
+
+    .promo-text-box-img img {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 800px) {
+      .row-promo {
+        flex-direction: column;
+      }
+
+      .promo-img-wrap {
+        width: 100%;
+      }
+
+      .promo-text {
+        width: 100%;
+      }
+    }
+
+    /* -----------------------card2---------------- */
+    .card-2 {
+      width: 100%;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: lyon;
+      font-size: 2.5rem;
+      line-height: 3rem;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.375rem;
+      font-family: lyon;
+    }
+
+    .product-card-2 {
+      width: 300px;
+      font-family: swiss;
+      margin: auto;
+      margin-top: 10px;
+      margin-left: 10px;     
+       
+    }
+    
+    .product-card-2-wrap {
+      width: 100%;
+      margin-left: 30px;
+    }
+
+    .product-card-2-wrap img {
+      width: 100%;
+      border-radius: 5%;
+    }
+
+    .product-card-2-wrap img:hover {
+      box-shadow: 5px 5px 10px #ccc;
+      transition: .3s;
+    }
+
+    a {
+      display: block;
+      color: black;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+
+    .row-card-2{
+      margin: 10px 20px;
+      display: flex;
+      
+      padding: 10px 10px;
+    }
+    @media screen and (max-width: 400px) {
+      .row-card-2 {
+        flex-direction: column;
+      }
+    }
+    .break{
+      width:100%;
+      height: 30px;
+      margin-top: 30px;
+      background: linear-gradient(1turn,#cc1e3b -44.49%,#ff8646 157.84%);
+    }
+    /* ------------footer----------------- */
+    .footer-container{
+      background-color: #21232e;
+      
+    }
+    .footer-box{
+      border-bottom:1px solid hsla(0,0%,100%,.2);
+      color: #fff;
+      font-family: lyon;
+      text-align: center;
+      padding: 10px;
+    }
+    .footer-img-wrap{
+      width: 100%;
+      padding: 10px;
+      
+      
+    }
+    .pay-wrap{
+      width: 55px;
+      padding: 10px;
+      display: inline-block;
+      
+    }
+    .pay-wrap img{
+      width: 35px;
+    }
+    .copyright{
+      width: 100%;
+      color: #64656a;
+      font-size: .75rem;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="/images/logo-svg.svg" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="homepage">
+    <div class="homepage-bg-wrap">
+      <picture>
+        <source srcset="./images/Homepage_Bamboo_847x1135-jpg.jpeg" media="(max-width: 799px)">
+        <!-- <source srcset="./images/Homepage_Bamboo_1920x823-jpg" media="(max-width: 100px)"> -->
+
+        <img src="./images/Homepage_Bamboo_1920x823-jpg.jpg" alt="">
+
+      </picture>
+      <div class="homepage-text">
+        <span class="text-line1">découvrir</span>
+        <h1>Bamboo</h1>
+        <p>Découvrez notre nouvelle teinte vibrante qui apporte une note de fraîcheur et de convivialité dans
+          votre cuisine.</p>
+        <button type="button" class="btn btn-outline-dark">VOIR LA COLLECTION</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="container-category pb-3 mt-3 mb-3">
+    <h3 class="category">Découvrez notre gamme</h3>
+    <div class="row">
+  </main>
+
+  <!-- 商品條section -->
+  <main class="main-category">
+    <div class="card-category-wrap d-flex">
+      <div class="card-category mx-3" style="width: 10rem;">
+        <img src="./images/LC_20200325_AD_CI_IC_ALLCOOKNG00001_001-png.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Cuisine</p>
+        </div>
+      </div>
+
+      <div class="card-category mx-3" style="width: 10rem;">
+        <img src="./images/LC_20200325_AD_CI_IC_CICASS00000001_001-png.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Cocottes</p>
+        </div>
+      </div>
+
+      <div class="card-category mx-3" style="width: 10rem;">
+        <img src="./images/LC_20200330_AD_CI_IC_MINICCTTS00001_001-png.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">SETS DE CUISSON</p>
+        </div>
+      </div>
+
+      <div class="card-category mx-3" style="width: 10rem;">
+        <img src="./images/LC_20200406_AD_CI_IC_SAUCEPNSNPT001_001-png.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Casseroles et Faitouts</p>
+        </div>
+      </div>
+
+      <div class="card-category mx-3" style="width: 10rem;">
+        <img src="./images/LC_20200330_AD_CI_IC_FRYINGPNS00001_001-png.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Sauteuses et Woks</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+  <!-- 卡片section -->
+  <main class="card">
+    <div class="card-title mt-3">
+      <h1>Classiques mais tellement modernes</h1>
+      <h3>Des favoris intemporels qui apportent notre saveur signature à chaque cuisine</h3>
+    </div>
+    <div class="container-card">
+      <div class="row-card d-flex">
+
+        <!-- 第1張卡片 -->
+        <div class="product-card ml-3 py-4">
+          <span>COLLECTION SIGNATURE</span>
+          <a href="">Cocotte ronde en fonte émaillée</a>
+          <span>265.00- 569,00 €</span>
+          <div class="card-img-wrap">
+            <img src="./images/LC_20210908_HL_PS_FS_21178230902430_001-png.png" alt="">
+          </div>
+          <div class="color-wrap d-flex">
+            <div class="color" style="background: linear-gradient(180deg,#408d53 0%,#185a36 100%);"></div>
+            <div class="color" style="background: linear-gradient(180deg,#ccc 0%,rgb(43, 38, 38) 100%);"></div>
+            <div class="color" style="background: linear-gradient(180deg,rgb(190, 12, 12) 0%,rgb(95, 5, 20) 100%);">
+            </div>
+            <div class="color" style="background: linear-gradient(180deg,rgb(7, 51, 133) 0%,rgb(24, 99, 168) 100%);">
+            </div>
+            <div class="color"
+              style="background: linear-gradient(180deg,rgb(145, 89, 5) 0%,rgba(209, 130, 40, 0.774) 100%);"></div>
+          </div>
+          <div class="card-under mt-3">...Disponible en 7 tailles
+            <i class="fa-brands fa-gratipay ml-2"></i>
+          </div>
+        </div>
+
+        <!-- 第2張卡片 -->
+        <div class="product-card ml-3 py-4">
+          <span>COLLECTION SIGNATURE</span>
+          <a href="">Cocotte ronde en fonte émaillée</a>
+          <span>265.00- 569,00 €</span>
+          <div class="card-img-wrap">
+            <img src="./images/LC_20191022_HL_PS_FS_21178270000430_001.webp" alt="">
+          </div>
+          <div class="color-wrap d-flex">
+            <div class="color" style="background: linear-gradient(180deg,#408d53 0%,#185a36 100%);"></div>
+            <div class="color" style="background: linear-gradient(180deg,#ccc 0%,rgb(43, 38, 38) 100%);"></div>
+            <div class="color" style="background: linear-gradient(180deg,rgb(190, 12, 12) 0%,rgb(95, 5, 20) 100%);">
+            </div>
+            <div class="color" style="background: linear-gradient(180deg,rgb(7, 51, 133) 0%,rgb(24, 99, 168) 100%);">
+            </div>
+            <div class="color"
+              style="background: linear-gradient(180deg,rgb(145, 89, 5) 0%,rgba(209, 130, 40, 0.774) 100%);"></div>
+          </div>
+          <div class="card-under mt-3">...Disponible en 7 tailles
+            <i class="fa-brands fa-gratipay ml-2"></i>
+          </div>
+        </div>
+
+        <!-- 第3張卡片 -->
+
+        <div class="product-card ml-3 py-4">
+          <span>COLLECTION SIGNATURE</span>
+          <a href="">Cocotte ronde en fonte émaillée</a>
+          <span>265.00- 569,00 €</span>
+          <div class="card-img-wrap">
+            <img src="./images/LC_20191104_HL_PS_FS_21180304032430_001.png" alt="">
+          </div>
+          <div class="color-wrap d-flex">
+            <div class="color" style="background: linear-gradient(180deg,#408d53 0%,#185a36 100%);"></div>
+            <div class="color" style="background: linear-gradient(180deg,#ccc 0%,rgb(43, 38, 38) 100%);"></div>
+            <div class="color" style="background: linear-gradient(180deg,rgb(190, 12, 12) 0%,rgb(95, 5, 20) 100%);">
+            </div>
+            <div class="color" style="background: linear-gradient(180deg,rgb(7, 51, 133) 0%,rgb(24, 99, 168) 100%);">
+            </div>
+            <div class="color"
+              style="background: linear-gradient(180deg,rgb(145, 89, 5) 0%,rgba(209, 130, 40, 0.774) 100%);"></div>
+          </div>
+          <div class="card-under mt-3">...Disponible en 7 tailles
+            <i class="fa-brands fa-gratipay ml-2"></i>
+          </div>
+        </div>
+
+        <!-- 第4張卡片 -->
+
+        <div class="product-card ml-3 py-4">
+          <span>COLLECTION SIGNATURE</span>
+          <a href="">Cocotte ronde en fonte émaillée</a>
+          <span>265.00- 569,00 €</span>
+          <div class="card-img-wrap">
+            <img src="./images/LC_20191104_HL_PS_FS_21180304202430_001.png" alt="">
+          </div>
+          <div class="color-wrap d-flex">
+            <div class="color" style="background: linear-gradient(180deg,#408d53 0%,#185a36 100%);"></div>
+            <div class="color" style="background: linear-gradient(180deg,#ccc 0%,rgb(43, 38, 38) 100%);"></div>
+            <div class="color" style="background: linear-gradient(180deg,rgb(190, 12, 12) 0%,rgb(95, 5, 20) 100%);">
+            </div>
+            <div class="color" style="background: linear-gradient(180deg,rgb(7, 51, 133) 0%,rgb(24, 99, 168) 100%);">
+            </div>
+            <div class="color"
+              style="background: linear-gradient(180deg,rgb(145, 89, 5) 0%,rgba(209, 130, 40, 0.774) 100%);"></div>
+          </div>
+          <div class="card-under mt-3">...Disponible en 7 tailles
+            <i class="fa-brands fa-gratipay ml-2"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+  <!-- 輪播牆-->
+  <main class="slide">
+    <div class="row-slide mt-1">
+      <div class="slide-img-wrap">
+        <img src="./images/Homepage_SFP_1920x1080-jpg.jpg" alt="">
+        <div class="slide-text">
+          <h3>Poêle Signature</h3>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </main>
+
+  <!----------------- 永遠promp--------------------------------->
+  <main class="promo">
+    <div class="container-promo">
+      <div class="row-promo d-flex">
+        <div class="promo-img-wrap">
+          <img src="./images/Dec SF_Feature Collection_1000x1000_Casseroles-jpg.jpg" alt="">
+        </div>
+        <div class="promo-text">
+          <h3>Toujours de saison</h3>
+          <p>Découvrez la polyvalence toute l'année des cocottes en fonte émaillée Le Creuset, disponibles dans nos
+            coloris emblématiques.</p>
+          <div class="promo-text-box">
+            <div class="promo-row-text-box d-flex">
+              <div class="promo-text-box">
+                <div class="promo-text-box-img">
+                  <img src="./images/LC_20211124_GB_RC_CI_r0000000001730_ENG-png.png" alt="">
+                  <p>Cocotte ovale en Fonte Émaillée avec Intérieur Noir</p>
+                  <p>289,00 € - 569,00 €</p>
+                </div>
+                <div class="promo-text-box-img">
+                  <img src="./images/LC_20211124_GB_RC_CI_r0000000001729_ENG-png.png" alt="">
+                  <p>Cocotte ovale en Fonte Émaillée avec Intérieur Noir</p>
+                  <p>289,00 € - 569,00 €</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+  <!-- 卡片區 again -->
+  <main class="card-2">
+    <div class="card-title mt-3">
+      <h1>Classiques mais tellement modernes</h1>
+      <h3>Des favoris intemporels qui apportent notre saveur signature à chaque cuisine</h3>
+    </div>
+    <div class="container-card">
+      <div class="row-card-2">
+
+        <!-- 第1張卡片 -->
+        <div class="product-card-2">
+          <div class="product-card-2-wrap">
+            <img src="./images/1-png.png" alt="">
+          </div>
+        </div>
+
+        <!-- 第2張卡片 -->
+        <div class="product-card-2">
+          <div class="product-card-2-wrap">
+            <img src="./images/2-png.png" alt="">
+          </div>
+        </div>
+
+        <!-- 第3張卡片 -->
+
+        <div class="product-card-2">
+          <div class="product-card-2-wrap">
+            <img src="./images/3-png.png" alt="">
+          </div>
+        </div>
+ 
+  </main>
+
+  <!-- ----------------休息區-------- -->
+<main class="break"></main>
+  <!-- ------------------footer--------- -->
+<footer>
+  <div class="footer-container">
+    <div class="row-footer">
+      <div class="footer-box">
+        <h4>Nous acceptons les modes de paiement suivants</h4>
+        <div class="footer-img-wrap">
+          <div class="pay-wrap">
+            <img src="./images/Pay Pal-png.png" alt="">
+          </div>
+          <div class="pay-wrap">
+            <img src="./images/Mastercard-png.png" alt="">
+          </div>
+          <div class="pay-wrap">
+            <img src="./images/Visa-png.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="footer-box">
+        <h4>Trouvez un magasin Le Creuset autour de vous</h4>
+      </div>
+      <div class="footer-box">
+        <h4>Besoin d'aide ? Contactez-nous.</h4>
+      </div>
+      <div class="copyright">© Copyright © 2022, Le Creuset France SAS. Tout droit réservé. B 502 705 502. 902 rue Olivier Deguise 02230 Fresnoy-Le-Grand.
+      </div>
+    </div>
+
+  </div>
+  
+</footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
